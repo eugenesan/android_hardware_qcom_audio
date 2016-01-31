@@ -650,7 +650,7 @@ AudioHardware::AudioHardware() :
     int control;
     int i = 0,index = 0;
 #ifdef QCOM_ACDB_ENABLED
-    int acdb_id = INVALID_ACDB_ID;
+    int acdb_id __unused = INVALID_ACDB_ID;
 #endif
     int fluence_mode = FLUENCE_MODE_ENDFIRE;
     char value[128];
@@ -994,7 +994,7 @@ status_t AudioHardware::initCheck()
 
 // default implementation calls its "without flags" counterpart
 AudioStreamOut* AudioHardware::openOutputStreamWithFlags(uint32_t devices,
-                                          audio_output_flags_t flags,
+                                          audio_output_flags_t flags __unused,
                                           int *format,
                                           uint32_t *channels,
                                           uint32_t *sampleRate,
@@ -1254,32 +1254,32 @@ status_t AudioHardware::setMode(int mode)
     return status;
 }
 
-status_t AudioHardware::setMasterMute(bool muted) {
+status_t AudioHardware::setMasterMute(bool muted __unused) {
     //TODO: enable when supported by driver
     return INVALID_OPERATION;
 }
 
-int AudioHardware::createAudioPatch(unsigned int num_sources,
-        const struct audio_port_config *sources,
-        unsigned int num_sinks,
-        const struct audio_port_config *sinks,
-        audio_patch_handle_t *handle) {
+int AudioHardware::createAudioPatch(unsigned int num_sources __unused,
+        const struct audio_port_config *sources __unused,
+        unsigned int num_sinks __unused,
+        const struct audio_port_config *sinks __unused,
+        audio_patch_handle_t *handle __unused) {
     //TODO: enable when supported by driver
     return INVALID_OPERATION;
 }
 
-int AudioHardware::releaseAudioPatch(audio_patch_handle_t handle) {
+int AudioHardware::releaseAudioPatch(audio_patch_handle_t handle __unused) {
     //TODO: enable when supported by driver
     return INVALID_OPERATION;
 }
 
-int AudioHardware::getAudioPort(struct audio_port *port) {
+int AudioHardware::getAudioPort(struct audio_port *port __unused) {
     //TODO: enable when supported by driver
     return INVALID_OPERATION;
 }
 
 int AudioHardware::setAudioPortConfig(
-        const struct audio_port_config *config) {
+        const struct audio_port_config *config __unused) {
     //TODO: enable when supported by driver
     return INVALID_OPERATION;
 }
